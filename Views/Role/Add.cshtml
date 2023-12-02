@@ -1,0 +1,85 @@
+@model Real_Estate.Core.Application.Dto.RoleRequestMode
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Create Role";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-md-2 border" style="min-height: 520px; padding: 0px; margin: 0px">
+            <a class="dropdown-item active" asp-action="Super" asp-controller="User">Dashboard</a>
+            <a class="dropdown-item" asp-action="Add" asp-controller="Role">Create Roles</a>
+            <a class="dropdown-item" asp-action="List" asp-controller="Role">Role List</a>
+            <a class="dropdown-item" asp-action="Add" asp-controller="Manager">Create Manager</a>
+            <a class="dropdown-item" asp-action="List" asp-controller="Manager">Manager List</a>
+        </div>
+        <div class="row col-md-10 pt-3">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="text-center"><h3>@ViewData["Title"]</h3></div>
+                <div>@TempData["message"]</div>
+                <form asp-action="Add">
+                    <div class="form-group">
+                        <label asp-for="Name"></label>
+                        <input asp-for="Name" class="form-control" type="text" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Description"></label>
+                        <input asp-for="Description" class="form-control" type="text" />
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+                    <div class="mt-2 text-end">
+                        <button type="submit" class="btn btn-primary" style="width: 30%">Create Role</button>
+                    </div>
+                </form>
+                <div>
+                    <a asp-controller="Role" asp-action="List">Back</a>
+                </div>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </div>
+</div>
+
+<style>
+
+    .container {
+        margin-top: 20px;
+    }
+
+    .border {
+        border: 1px solid #ccc;
+    }
+
+    .dropdown-item {
+        display: block;
+        padding: 10px;
+        text-decoration: none;
+        color: #333;
+    }
+
+    .dropdown-item.active {
+        background-color: #007bff;
+        color: #fff;
+    }
+
+    .col-md-10 {
+        min-height: 520px;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    h3 {
+        font-size: 24px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .text-danger {
+        color: red;
+    }
+</style>

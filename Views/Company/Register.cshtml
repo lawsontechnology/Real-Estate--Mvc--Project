@@ -1,0 +1,66 @@
+@model Real_Estate.Core.Application.Dto.CompanyRequestMode
+
+<div>
+    <h2><i>Company Form</i></h2>
+</div>
+
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="row col-md-10 pt-3">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <span class="text-center">
+                <h3>@ViewData["Title"]</h3>
+            </span>
+            
+            <form asp-action="Add">
+                <div class="profile">
+                    <label asp-for="Name">Company Name</label>
+                    <input class="form-control" type="text" asp-for="Name" required>
+                    <span asp-validation-for="Name"></span>
+                </div>
+                <div class="profile">
+                    <label for="CACRegNumber">CACRegNumber</label>
+                    <input class="form-control" type="text" name="CACRegNumber" required>
+                    <span asp-validation-for="CACRegNumber"></span>
+                </div>
+                <div class="profile">
+                    <label for="Logo">Logo</label>
+                    <input class="form-control" type="Logo" name="Logo">
+                    <span asp-validation-for="Logo" class="text-danger"></span>
+                </div>
+                <div class="profile">
+                    <label for="Address">Address</label>
+                    <input class="form-control" type="number" name="Address">
+                    <span asp-validation-for="Address"></span>
+                </div>
+
+                <div>
+                    <input class="btn btn-primary" type="submit" value="Submit"/>
+                </div>
+                <li>
+                    <a asp-controller="User" text asp-action="Admin">Back</a>
+                </li>
+            </form>
+            
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>
+
+<style>
+    .profile {
+        margin-bottom: 10px;
+          background-repeat: no-repeat;
+            background-size: cover;
+            background-image: url("https://images5.alphacoders.com/370/thumbbig-370235.webp");
+    }
+
+    .profile label {
+        font-weight: bold;
+    }
+
+    .profile input {
+        width: 100%;
+    }
+</style>

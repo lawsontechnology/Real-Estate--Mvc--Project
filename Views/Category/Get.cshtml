@@ -1,0 +1,32 @@
+@model Real_Estate.Core.Application.Dto.CategoryDto
+@{
+     ViewData["Title"] = "Categories";
+}
+
+<div class="container">
+    <div>
+            <h2>Category Name: @Model.CategoryName</h2>
+            <h2>Description: @Model.Description</h2>
+            <h2>Price-Range: @Model.PriceRange</h2>
+    </div>
+    <div>
+        <a asp-controller="Category" asp-action="List">Back</a>
+    </div>
+</div>
+
+<style>
+
+    .container {
+        margin-top: 20px;
+        text-align: left;
+        color: cornflowerblue;
+          background-repeat: no-repeat;
+            background-size: cover;
+            background-image: url("https://wallpapers.com/images/high/real-estate-pictures-iygfhpbvu3nxv9si.webp");
+    }
+    
+    h2 {
+        font-size: 24px;
+        margin: 10px 0;
+    }
+</style>

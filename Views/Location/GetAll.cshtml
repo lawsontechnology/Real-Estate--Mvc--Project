@@ -1,0 +1,78 @@
+@model IEnumerable<Real_Estate.Core.Application.Dto.LocationDto>
+@{
+    ViewData["Title"] = "Location-List";
+}
+
+<div class="container">
+    <table class="table table-active table-bordered table-striped table-responsive">
+        <thead>
+            <tr>
+                <td>S/N</td>
+                <td>Location-Number</td>
+                <td>Street</td>
+                <td>State</td>
+                <td>City</td>
+                <td>Country</td>
+                <td>Details</td>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                int i = 1;
+                foreach (var location in Model)
+                {
+                    <tr>
+                         <td>@i</td>
+                         <td>@location.Number</td>
+                         <td>@location.Street</td>
+                         <td>@location.State</td>
+                         <td>@location.City</td>
+                         <td>@location.Country</td> 
+                        <td>
+                            <a asp-controller="Location" asp-action="Get" asp-route-id="@location.Id">Details</a>
+                        </td>
+                    </tr>
+                    i++;
+                }
+            }
+        </tbody>
+    </table>
+    <div>
+        <a asp-controller="Product" asp-action="List">Back</a>
+    </div>
+</div>
+
+<style>
+
+    .container {
+        margin-top: 20px;
+          background-repeat: no-repeat;
+            background-size: cover;
+            background-image: url("https://wallpapers.com/images/high/real-estate-modern-white-house-dcxpp5xsw4e7wqgc.webp");
+    }
+
+    .table {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .table-bordered {
+        border: 1px solid #ddd;
+    }
+
+    .table-striped tbody tr:nth-of-type(odd) {
+        background-color: #f9f9f9;
+    }
+
+    .table-responsive {
+        overflow-x: auto;
+    }
+
+    td {
+        color: purple;
+    }
+
+    a {
+        color: cornflowerblue;
+    }
+</style>

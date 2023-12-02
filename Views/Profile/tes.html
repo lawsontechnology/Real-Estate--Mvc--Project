@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+</head>
+
+<body>
+     <style>
+               body {
+                    margin-top: 15%;
+                    margin-left: 32%;
+                    font-size: 2rem;
+                    background-image: url("/Images/architecture-1477094_1280-1024x680.jpg");
+                    /* background-image: url("/Image/about-img-h.jpg"); */
+                    background-repeat: no-repeat;
+                    background-size: cover;
+               
+          }
+
+          #wrapper {
+               /* background: #000; */
+               border: 2px solid red;
+               letter-spacing: 2px;
+               border-radius: 30px;
+               width: 550px;
+               height: 250px;
+               display: flex;
+               flex-direction: column;
+               align-content: right;
+               justify-content: center;
+               background: white;
+
+          }
+          label{
+               color: red;
+          }
+     </style>
+
+     <form action="" method="post">
+          <div id="wrapper">
+               <div>
+                    <label for="firstname">firstname</label>
+                    <input type="text" name="firstname" required>
+               </div>
+               <div>
+                    <label for="lastname">lastname</label>
+                    <input type="text" name="lastname" required>
+               </div>
+               <div>
+                    <label for="email">Email</label>
+                    <input type="email" name="email" required>
+                    <span asp-validation-for="email" class="text-danger"></span>
+               </div>
+               <div>
+                    <label for="password">Password</label>
+                    <input type="password" name="password">
+               </div>
+               <div>
+                    <label for="userName">UserName</label>
+                    <input type="text" name="userName">
+               </div>
+               <div>
+                    <label for="phoneNumber">PhoneNumber</label>
+                    <input type="tel" name="phoneNumber">
+               </div>
+               <div>
+                    <label for="countryCode">CountryCode</label>
+                    <input type="text" name="countryCode">
+               </div>
+               <div>
+                    <label for="number">Number</label>
+                    <input type="number" name="number">
+               </div>
+               <div>
+                    <label for="street">Street</label>
+                    <input type="text" name="street">
+               </div>
+               <div>
+                    <label for="city">City</label>
+                    <input type="text" name="city">
+               </div>
+               <div>
+                    <label for="state">State</label>
+                    <input type="text" name="State">
+               </div>
+               <div>
+                    <label for="postalCode">PostalCode</label>
+                    <input type="number" name="postalCode">
+               </div>
+               
+               <div>
+                    <label for="dob">YearOfBirth</label>
+                    <input type="text" name="dob">
+               </div>
+               <button value="submit">submit </button>
+          </div>
+          
+     </form>
+</body>
+
+</html>

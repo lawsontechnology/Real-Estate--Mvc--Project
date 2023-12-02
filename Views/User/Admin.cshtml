@@ -1,0 +1,67 @@
+@{
+    ViewData["Title"] = "Super Admin Dashboard";
+}
+<div class="container">
+    <div class="row">
+  <div class="col-md-2 border" style="min-height: 520px; padding: 0px; margin: 0px">
+            @await Html.PartialAsync("~/Views/User/Menu.cshtml")
+            <a class="dropdown-item active" asp-action="Admin" asp-controller="User">Dashboard</a>
+            @* <a class="dropdown-item" asp-action="Add" asp-controller="Role">Role</a> *@
+            <a class="dropdown-item" asp-action="List" asp-controller="Role">Role List</a>
+            <a class="dropdown-item" asp-action="Add" asp-controller="Manager">Add Manager</a>
+            <a class="dropdown-item" asp-action="List" asp-controller="Manager">Manager List</a>
+            <a class="dropdown-item" asp-action="List" asp-controller="Category">Categories List</a>
+            <a class="dropdown-item" asp-action="Register" asp-controller="Product">Add Product</a>
+            <a class="dropdown-item" asp-action="List" asp-controller="Product">Product List</a>
+            <a class="dropdown-item" asp-action="GetAll" asp-controller="Location">Location List</a>
+            <a class="dropdown-item" asp-action="Register" asp-controller="Company">Add Company</a>
+            <a class="dropdown-item" asp-action="GetAll" asp-controller="Profile">Customer List</a>
+        </div>
+        <div class="col-md-10 pt-3">
+            <div class="text-center">
+                <h3>@ViewData["Title"]</h3>
+            </div>
+            <div>
+              
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    
+    .container {
+        margin-top: 20px;
+                  background-repeat: no-repeat;
+            background-size: cover;
+            background-image: url("https://wallpapers.com/images/high/real-estate-background-image-v4tntoo3b4ajnner.webp");
+    }
+
+    .border {
+        border: 1px solid #ccc;
+    }
+
+    .dropdown-item {
+        display: block;
+        padding: 10px;
+        text-decoration: none;
+        color: #333;
+    }
+
+    .dropdown-item.active {
+        background-color: #007bff;
+        color: #fff;
+    }
+
+    .col-md-10 {
+        min-height: 520px;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    h3 {
+        font-size: 24px;
+    }
+</style>

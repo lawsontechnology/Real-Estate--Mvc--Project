@@ -1,0 +1,15 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Real_Estate.Core.Application.Dto;
+
+namespace Real_Estate.Core.Application.Interface.Service
+{
+    public interface ICustomerService
+    {
+        Task<BaseResponse<CustomerDto>> GetById(string id);
+        Task<BaseResponse<ICollection<CustomerDto>>> GetAll();
+        Task <BaseResponse<CustomerDto>> Delete(string CustomerId);
+    }
+}

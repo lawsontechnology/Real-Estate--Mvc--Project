@@ -1,0 +1,51 @@
+@model Real_Estate.Core.Application.Dto.ManagerDto
+@{
+    ViewData["Title"] = "Agency Details";
+    @* Layout = "~/Views/Shared/_StudentLayout.cshtml"; *@
+}
+
+<h2>@ViewData["ManagerName"]</h2>
+<dl>
+    <dt>
+        StaffNumber:
+    </dt>
+    <dd>
+        @Model.StaffNumber
+    </dd>
+    <dt>
+        Email:
+    </dt>
+    <dd>
+        @Model.Email
+    </dd>
+    <dt>
+        FullName:
+    </dt>
+    <dd>
+        @Model.FullName
+    </dd>
+    <dt>
+        PhoneNumber: 
+    </dt>
+    <dd>
+        @Model.PhoneNumber
+    </dd>
+</dl>
+        <div>
+        <a asp-controller="Manager" asp-action="List">Back</a>
+    </div>
+<style>
+    
+    dl {
+        margin: 20px;
+        padding: 10px;
+        background-color: #f5f5f5;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+
+     dt {
+        margin: 10px 0;
+    }
+    
+</style>

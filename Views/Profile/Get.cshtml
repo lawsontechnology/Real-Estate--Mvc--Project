@@ -1,0 +1,67 @@
+@model Real_Estate.Core.Application.Dto.ProfileDto
+@{
+    ViewData["CustomerName"] = @Model.FirstName + " " + Model.LastName;
+}
+
+<div class="container">
+    <div>
+        <h2>Full Name: @ViewData["CustomerName"]</h2>
+        <h2>Email: @Model.Email</h2>
+
+        <dl>
+            <dt>Phone Number:</dt>
+            <dd>@Model.Phone.PhoneNumber</dd>
+
+            <dt>Country Code:</dt>
+            <dd>@Model.Phone.CountryCode</dd>
+
+            <dt>Date of Birth:</dt>
+            <dd>@Model.Dob</dd>
+
+            <dt>House Number:</dt>
+            <dd>@Model.Address.Number</dd>
+
+            <dt>Street:</dt>
+            <dd>@Model.Address.Street</dd>
+
+            <dt>City:</dt>
+            <dd>@Model.Address.City</dd>
+
+            <dt>State:</dt>
+            <dd>@Model.Address.State</dd>
+
+            <dt>Postal Code:</dt>
+            <dd>@Model.Address.PostalCode</dd>
+        </dl>
+    </div>
+    <div>
+        <a asp-controller="Profile" asp-action="GetAll">Back</a>
+    </div>
+</div>
+
+<style>
+    .container {
+        margin-top: 20px;
+        text-align: left;
+        color: cornflowerblue;
+    }
+
+    h2 {
+        font-size: 24px;
+        margin: 10px 0;
+    }
+
+    dl {
+        margin-top: 20px;
+    }
+
+    dt {
+        font-weight: bold;
+        margin-top: 10px;
+    }
+
+    dd {
+        margin-bottom: 10px;
+        margin-left: 20px;
+    }
+</style>

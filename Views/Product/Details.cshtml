@@ -1,0 +1,190 @@
+@model Real_Estate.Core.Application.Dto.ProductDto
+@{
+    ViewData["Title"] = "Product-Details";
+}
+
+<div class="container">
+    <div class="view">
+        <dl>
+            <dt>
+                Product Name:
+            </dt>
+            <dd>
+                @Model.Name
+            </dd>
+            <dt>
+                SquareMeter:
+            </dt>
+            <dd>
+                @Model.SquareMeter
+            </dd>
+            <dt>
+                SquareFeet:
+            </dt>
+            <dd>
+                @Model.SquareFeet
+            </dd>
+            <dt>
+                ProductCode:
+            </dt>
+            <dd>
+                @Model.ProductCode
+            </dd>
+            <dt>
+                Condition:
+            </dt>
+            <dd>
+                @Model.Condition
+            </dd>
+            <dt>
+                Price:
+            </dt>
+            <dd>
+                @Model.Price
+            </dd>
+            <dt>
+                Type:
+            </dt>
+            <dd>
+                @Model.Type
+            </dd>
+            <dt>
+                Image:
+            </dt>
+            <dd>
+                <img style="height: 300px; width:400px" src="~/ProductImages/@Model.ProductImage" alt="">
+                <a href="~/ProductImages/@Model.ProductImage" download="@Model.ProductImage"><Input type="button"
+                        value="Download Image" /></a>
+            </dd>
+            <dt>
+                Location:
+            </dt>
+            <dd>
+                @foreach (var address in @Model.Locations)
+                {
+                    <div>
+                        Location-Number: @address.Number
+                        Street: @address.Street
+                        State: @address.State
+                        City: @address.City
+                        Country:@address.Country
+                    </div>
+                }
+            </dd>
+        </dl>
+        <form asp-controller="Wallet" asp-action="DebitWallet" method="post">
+            <input type="hidden" name="Amount" value="@Model.Price" />
+            <input type="hidden" name="id" value="@Model.Id" />
+            <button class="button" type="submit">Purchase</button>
+        </form>
+
+        
+        <a asp-controller="Product" asp-action="List">Back</a>
+    </div>
+    </div>
+    <
+</div>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Arial', sans-serif;
+        @* background-image: url(https://wallpapers.com/images/high/real-estate-pictures-fx3zql0fb2o6cvpz.webp); *@
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: relative;
+    }
+
+    .container {
+        margin-top: 10px;
+          padding-bottom: 100px;
+        text-align: left;
+        font-size: 14px;
+        @* background-color: rgba(255, 255, 255, 0.7); *@
+        padding: 20px;
+        border-radius: 10px;
+      
+        max-width: 800px;
+        @* margin-left: auto; *@
+        @* margin-right: auto; *@
+    }
+    .view{
+     margin-bottom: 100px;
+    }
+    .back{
+
+    }
+    dl {
+        font-size: 24px;
+        margin: 10px 0;
+        margin-bottom: 20px;
+    }
+
+    dd {
+        font-weight: 600;
+        color: cornflowerblue;
+        font-size: 19px;
+    }
+ 
+    dt {
+        font-weight: 900;
+        font-size: 19px;
+        color: rgba(43, 208, 226, 0.975);
+    }
+
+    img {
+        height: 300px;
+        width: 400px;
+        border-radius: 5px;
+        margin-bottom: 10px;
+    }
+
+
+    a[download] {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+        text-decoration: none;
+        cursor: pointer;
+        border: 2px solid #3498db;
+        color: #3498db;
+        background-color: #fff;
+        border-radius: 5px;
+        transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    }
+
+    a[download]:hover {
+        background-color: #3498db;
+        color: #fff;
+        border-color: #fff;
+    }
+
+    form {
+        margin-top: 20px;
+
+    }
+
+    button {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+        text-decoration: none;
+        cursor: pointer;
+        border: 2px solid #27ae60;
+        color: #27ae60;
+        background-color: #fff;
+        border-radius: 10px;
+        transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    }
+
+    button:hover {
+        background-color: #27ae60;
+        color: #fff;
+        border-color: #fff;
+    }
+</style>

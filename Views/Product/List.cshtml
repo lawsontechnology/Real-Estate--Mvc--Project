@@ -1,0 +1,115 @@
+@model IEnumerable<Real_Estate.Core.Application.Dto.ProductDto>
+@{
+    ViewData["Title"] = "Product-List";
+}
+
+<div class="container">
+    <table class="table table-active table-bordered table-striped table-responsive">
+        <thead>
+            <tr>
+                <td>S/N</td>
+                <td>Product Name</td>
+                <td>SquareMeter</td>
+                <td>SquareFeet</td>
+                <td>ProductCode</td>
+                <td>Condition</td>
+                <td>Type</td>
+                <td>Price</td>
+                <td>Location</td>
+                <td>Details</td>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                int i = 1;
+                foreach (var product in Model)
+                {
+                    <tr>
+                        <td>@i</td>
+                        <td>@product.Name</td>
+                        <td>@product.SquareMeter</td>
+                        <td>@product.SquareFeet</td>
+                        <td>@product.ProductCode</td>
+                        <td>@product.Condition</td>
+                        <td>@product.Type</td>
+                        <td>@product.Price</td>
+                        <td>
+                            @foreach (var address in product.Locations)
+                            {
+                                <div>
+                                    Location-Number: @address.Number,
+                                    Street: @address.Street,
+                                    State: @address.State,
+                                    City: @address.City,
+                                    Country:@address.Country,
+                                </div>
+                            }
+                        </td>
+                        <td>
+                            <a asp-controller="Product" asp-action="Details" asp-route-id="@product.Id">Details</a>
+                        </td>
+                    </tr>
+                    i++;
+                }
+            }
+        </tbody>
+    </table>
+    @{
+    var userRole = User.Claims.FirstOrDefault(c => c.Type == "Role")?.Value;
+}
+
+@if (userRole == "Admin")
+{
+    <li>
+        <a asp-controller="User" asp-action="Admin">Home</a>
+    </li>
+}
+else if (userRole == "Manager")
+{
+    <li>
+        <a asp-controller="User" asp-action="Manager">Home</a>
+    </li>
+}
+else if (userRole == "customer")
+{
+    <li>
+        <a asp-controller="User" asp-action="Customer">Home</a>
+    </li>
+}
+
+</div>
+</div>
+
+<style>
+    .container {
+        margin-top: 20px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-image: url("https://wallpapers.com/images/high/real-estate-digital-art-0kmi22tcj2x60lim.webp");
+    }
+
+    .table {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .table-bordered {
+        border: 1px solid #ddd;
+    }
+
+    .table-striped tbody tr:nth-of-type(odd) {
+        background-color: #f9f9f9;
+    }
+
+    .table-responsive {
+        overflow-x: auto;
+    }
+
+    td {
+        color: purple;
+    }
+    
+    a {
+        color: cornflowerblue;
+    }
+</style>

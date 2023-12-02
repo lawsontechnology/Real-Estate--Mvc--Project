@@ -1,0 +1,34 @@
+@model Real_Estate.Core.Application.Dto.WalletDto
+
+<h2><i>Wallet Details</i></h2>
+
+<div>
+    <p><strong>Balance:</strong> @Model.Balance</p>
+</div>
+
+<div>
+    <a asp-controller="User" asp-action="Customer" class="btn btn-secondary">Back</a>
+</div>
+
+<style>
+    h2 {
+        font-style: italic;
+    }
+
+    p {
+        margin-bottom: 10px;
+    }
+
+    .btn-secondary {
+        background-color: #6c757d;
+        color: #fff;
+        text-decoration: none;
+        padding: 8px 12px;
+        border-radius: 4px;
+        display: inline-block;
+    }
+
+    .btn-secondary:hover {
+        opacity: 0.8;
+    }
+</style>

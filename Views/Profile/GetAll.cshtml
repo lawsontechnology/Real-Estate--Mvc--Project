@@ -1,0 +1,96 @@
+@model IEnumerable<Real_Estate.Core.Application.Dto.ProfileDto>
+@{
+    ViewData["Title"] = "Customer List";
+}
+
+<div class="container">
+    @{
+        var userRole = User.Claims.FirstOrDefault(c => c.Type == "Role")?.Value;
+    }
+
+    @if (userRole == "Admin" || userRole == "Manager" || userRole == "customer")
+    {
+        <a class="nav-link" asp-controller="User" asp-action="Home">Home</a>
+    }
+    <table class="table table-active table-bordered table-striped table-responsive">
+        <thead>
+            <tr>
+                <td>S/N</td>
+                <td>First Name</td>
+                <td>Last Name</td>
+                @* <td>User Name</td> *@
+                <td>Year of Birth</td>
+                <td>Contant</td>
+                <td>Address</td>
+                
+                <td>Details</td>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                int i = 1;
+                foreach (var customer in Model)
+                {
+                    <tr>
+                        <td>@i</td>
+                        <td>@customer.FirstName</td>
+                        <td>@customer.LastName</td>
+                        @* <td>@customer.UserName</td> *@
+                        <td>@customer.Dob</td>
+                        <td>
+                             Phone Number: @customer.Phone.PhoneNumber
+                             Country Code: @customer.Phone.CountryCode
+                         </td>
+                         <td>
+                             House Number: @customer.Address.Number
+                             Street: @customer.Address.Street
+                             State: @customer.Address.State
+                             City: @customer.Address.City
+                             Postal Code: @customer.Address.PostalCode
+                         </td>
+                        
+                        <td>
+                            <a asp-controller="Profile" asp-action="Get" asp-route-id="@customer.Id">Details</a>
+                        </td>
+                    </tr>
+                    i++;
+                }
+            }
+        </tbody>
+    </table>
+    @* <div>
+        <a asp-controller="User" asp-action="Admin">Back</a>
+    </div> *@
+</div>
+
+<style>
+
+    .container {
+        margin-top: 20px;
+    }
+
+    .table {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .table-bordered {
+        border: 1px solid #ddd;
+    }
+
+    .table-striped tbody tr:nth-of-type(odd) {
+        background-color: #f9f9f9;
+    }
+
+    .table-responsive {
+        overflow-x: auto;
+    }
+
+    td {
+        color: purple;
+    }
+
+    a {
+        color: cornflowerblue;
+    }
+</style>

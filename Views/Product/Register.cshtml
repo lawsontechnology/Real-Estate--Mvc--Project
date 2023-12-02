@@ -1,0 +1,138 @@
+@model Real_Estate.Core.Application.Dto.ProductRequestMode
+<link rel="stylesheet" href="~/css/Register.css">
+<div class="Product">
+    <div class="text-center">
+        <h2>Product Registration Form</h2>
+    </div>
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <form asp-action="Register" enctype="multipart/form-data">
+                <div class="Product">
+                    <label asp-for="Name">Product Name</label>
+                    <input class="form-control" type="text" asp-for="Name">
+                    <span asp-validation-for="Name"></span>
+                </div>
+                <div class="Product">
+                    <label asp-for="SquareMeter">SquareMeter</label>
+                    <input class="form-control" type="text" asp-for="SquareMeter">
+                    <span asp-validation-for="SquareMeter"></span>
+                </div>
+                <div class="Product">
+                    <label asp-for="SquareFeet">SquareFeet</label>
+                    <input class="form-control" type="text" asp-for="SquareFeet">
+                    <span asp-validation-for="SquareFeet"></span>
+                </div>
+                <div class="Product">
+                    <label asp-for="ProductCode">ProductCode</label>
+                    <input class="form-control" type="text" asp-for="ProductCode" required>
+                    <span asp-validation-for="ProductCode"></span>
+                </div>
+                <div class="Product">
+                    <label asp-for="Condition">Condition</label>
+                    <input class="form-control" type="text" asp-for="Condition" required>
+                    <span asp-validation-for="Condition"></span>
+                </div>
+                <div class="Product">
+                    <label asp-for="ProductImage">ProductImage</label>
+                    <input class="form-control" type="file" asp-for="ProductImage" required>
+                    <span asp-validation-for="ProductImage"></span>
+                </div>
+                <div class="Product">
+                    <label asp-for="Type">Type</label>
+                    <input class="form-control" type="tel" asp-for="Type" required>
+                    <span asp-validation-for="Type"></span>
+                </div>
+                <div class="Product">
+                    <label asp-for="Price">Price</label>
+                    <input class="form-control" type="text" asp-for="Price" required>
+                    <span asp-validation-for="Price"></span>
+                </div>
+                <div class="Product">
+                    <label asp-for="CategoryName">Category Name</label>
+                    <input class="form-control" type="text" asp-for="CategoryName" required>
+                    <span asp-validation-for="CategoryName"></span>
+                </div>
+                <div class="Product">
+                    <label asp-for="Description">Description</label>
+                    <input class="form-control" type="text" asp-for="Description">
+                    <span asp-validation-for="Description"></span>
+                </div>
+                <div class="Product">
+                    <label asp-for="PriceRange">PriceRange</label>
+                    <input class="form-control" type="text" asp-for="PriceRange" required>
+                    <span asp-validation-for="PriceRange"></span>
+                </div>
+                <div class="Product">
+                    <label asp-for="Number">Location-Number</label>
+                    <input class="form-control" type="text" asp-for="Number" required>
+                    <span asp-validation-for="Number"></span>
+                </div>
+                <div class="Product">
+                    <label asp-for="Street">Street</label>
+                    <input class="form-control" type="text" asp-for="Street" required>
+                    <span asp-validation-for="Street"></span>
+                </div>
+                <div class="Product">
+                    <label asp-for="City">City</label>
+                    <input class="form-control" type="text" asp-for="City" required>
+                    <span asp-validation-for="City"></span>
+                </div>
+                <div class="Product">
+                    <label asp-for="State">State</label>
+                    <input class="form-control" type="text" asp-for="State" required>
+                    <span asp-validation-for="State"></span>
+                </div>
+                <div class="Product">
+                    <label asp-for="Country">Country</label>
+                    <input class="form-control" type="text" asp-for="Country">
+                    <span asp-validation-for="Country"></span>
+                </div>
+                <div class="text-end pt-2">
+                    <input class="btn btn-primary" type="submit" value="Submit" />
+                </div>
+            </form>
+            
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+<style>
+    .Product {
+        margin-top: 20px;
+    @*background-color:rgba(115,235,235,0.79);*@border-radius: 30px;
+        background-image: url(https://wallpapers.com/images/high/real-estate-pictures-fx3zql0fb2o6cvpz.webp);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .text-center h2 {
+        font-size: 24px;
+    }
+
+    .Product label {
+        font-weight: bold;
+    }
+
+    .Product {
+        margin-top: 10px;
+    }
+
+    .text-end {
+        text-align: right;
+    }
+    #redirectButton {
+        transition: background-color 0.3s ease;
+    }
+
+    #redirectButton:hover {
+        background-color: #0056b3; /* darker shade on hover */
+    }
+
+</style>

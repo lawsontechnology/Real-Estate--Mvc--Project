@@ -1,0 +1,54 @@
+@* @using System.Security.Claims
+<style>
+    .dropdown-item {
+        display: block;
+        padding: 10px;
+        text-decoration: none;
+        color: #333;
+    }
+
+    .dropdown-item.active {
+        background-color: #007bff;
+        color: #fff;
+    }
+
+    .dropdown-item:hover {
+        background-color: #f0f0f0;
+        background-repeat: no-repeat;
+            background-size: cover;
+            background-image: url("https://wallpapers.com/images/high/real-estate-background-image-v4tntoo3b4ajnner.webp");
+    }
+</style>
+
+@if (User.IsInRole("Admin"))
+{
+     <a class="dropdown-item active" asp-action="Admin" asp-controller="User">Dashboard</a> 
+    <a class="dropdown-item" asp-action="List" asp-controller="Role">Role List</a>
+    <a class="dropdown-item" asp-action="Add" asp-controller="Manager">Add Manager</a>
+    <a class="dropdown-item" asp-action="List" asp-controller="Manager">Manager List</a>
+    <a class="dropdown-item" asp-action="List" asp-controller="Category">Categories List</a>
+    <a class="dropdown-item" asp-action="Register" asp-controller="Product">Add Product</a>
+    <a class="dropdown-item" asp-action="List" asp-controller="Product">Product List</a>
+    <a class="dropdown-item" asp-action="GetAll" asp-controller="Location">Location List</a>
+    <a class="dropdown-item" asp-action="Register" asp-controller="Company">Add Company</a>
+    <a class="dropdown-item" asp-action="GetAll" asp-controller="Customer">Customer List</a>
+}
+else if (User.IsInRole("Manager"))
+{
+    <a class="dropdown-item active" asp-action="Manager" asp-controller="User">Dashboard</a>
+    <a class="dropdown-item" asp-action="List" asp-controller="Category">Categories List</a>
+    <a class="dropdown-item" asp-action="Register" asp-controller="Product">Add Product</a>
+    <a class="dropdown-item" asp-action="List" asp-controller="Product">Product List</a>
+    <a class="dropdown-item" asp-action="GetAll" asp-controller="Location">Location List</a>
+    <a class="dropdown-item" asp-action="GetAll" asp-controller="Customer">Customer List</a>
+}
+else if (User.IsInRole("customer"))
+{
+    <a class="dropdown-item" asp-action="Customer" asp-controller="User">Dashboard</a>
+    <a class="dropdown-item" asp-action="List" asp-controller="Category">Categories List</a>
+    <a class="dropdown-item" asp-action="List" asp-controller="Product">Product List</a>
+    <a class="dropdown-item" asp-action="GetAll" asp-controller="Location">Location List</a>
+    <a class="dropdown-item" asp-action="Get" asp-controller="Wallet">Wallet</a>
+    
+}
+ *@

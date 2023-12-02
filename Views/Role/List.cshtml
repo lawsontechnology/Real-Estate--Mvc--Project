@@ -1,0 +1,97 @@
+@model IEnumerable<Real_Estate.Core.Application.Dto.RoleDto>
+@{
+    ViewData["Title"] = "Role List";
+}
+
+<div class="container">
+    <div class="row">
+        @* <div class="col-md-2 border" style="min-height: 520px; padding: 0px; margin: 0px">
+            <a class="dropdown-item active" asp-action="Admin" asp-controller="User">Dashboard</a>
+            <a class="dropdown-item" asp-action="Add" asp-controller="Role">Create Roles</a>
+            <a class="dropdown-item" asp-action="List" asp-controller="Role">Role List</a>
+            <a class="dropdown-item" asp-action="Add" asp-controller="Manager">Create Manager</a>
+            <a class="dropdown-item" asp-action="List" asp-controller="Manager">Manager List</a>
+        </div> *@
+        <div class="row col-md-10 pt-3">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <div class="text-center"><h3>@ViewData["Title"]</h3></div>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>RoleName</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var role in Model)
+                            {
+                                <tr>
+                                    <td>@role.Id</td>
+                                    <td>@role.Name</td>
+                                    <td>@role.Description</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+    </div>
+</div>
+                  <li>
+                    <a asp-controller="User" text asp-action="Admin">Home</a>
+                </li>
+<style>
+    
+    .container {
+        margin-top: 20px;
+    }
+
+    .border {
+        border: 1px solid #ccc;
+    }
+
+    .dropdown-item {
+        display: block;
+        padding: 10px;
+        text-decoration: none;
+        color: #333;
+    }
+
+    .dropdown-item.active {
+        background-color: #007bff;
+        color: #fff;
+    }
+
+    .col-md-10 {
+        min-height: 520px;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    h3 {
+        font-size: 24px;
+    }
+
+    .table {
+        width: 100%;
+    }
+
+    .table-bordered {
+        border: 1px solid #ddd;
+    }
+
+    .table-striped tbody tr:nth-of-type(odd) {
+        background-color: #f9f9f9;
+    }
+
+    .table-responsive {
+        overflow-x: auto;
+    }
+</style>

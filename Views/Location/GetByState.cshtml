@@ -1,0 +1,61 @@
+@model Real_Estate.Core.Application.Dto.LocationDto
+@{
+     ViewData["Title"] = "Product-Details";
+}
+
+<div class="container">
+    <div>
+ <dl>
+    <dt>
+        Location-Number:
+    </dt>
+    <dd>
+        @Model.Number
+    </dd>
+    <dt>
+        Street:
+    </dt>
+    <dd>
+        @Model.Street
+    </dd>
+    <dt>
+        State:
+    </dt>
+    <dd>
+        @Model.State
+    </dd>
+    <dt>
+        City: 
+    </dt>
+    <dd>
+        @Model.City
+    </dd>
+    <dt>
+                Country:
+            </dt>
+            <dd>
+                @Model.Country
+            </dd>
+</dl>
+    </div>
+    <div>
+        <a asp-controller="Location" asp-action="GetAll">Back</a>
+    </div>
+</div>
+
+<style>
+
+    .container {
+        margin-top: 20px;
+        text-align: left;
+        color: cornflowerblue;
+         background-repeat: no-repeat;
+            background-size: cover;
+            background-image: url("https://wallpapers.com/images/high/real-estate-modern-white-house-dcxpp5xsw4e7wqgc.webp");
+    }
+    
+    h2 {
+        font-size: 24px;
+        margin: 10px 0;
+    }
+</style>

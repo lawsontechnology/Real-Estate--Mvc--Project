@@ -1,0 +1,43 @@
+@model Real_Estate.Core.Application.Dto.ProductDto
+@{
+     ViewData["Title"] = "Product-Details";
+}
+
+<div class="container">
+    <div>
+            <h2>Product Name: @Model.Name</h2>
+            <h2>SquareMeter: @Model.SquareMeter</h2>
+            <h2>Squarefeet: @Model.SquareFeet</h2>
+            <h2>ProductCode: @Model.ProductCode</h2>
+            <h2>Condition: @Model.Condition</h2>
+            <h2>Type: @Model.Type</h2>
+            <h2>Price: @Model.Price</h2>
+  b          @foreach (var address in Model.Locations)
+               {
+                  <div>
+                     Location-Number: @address.Number
+                     Street: @address.Street
+                     State: @address.State
+                     City: @address.City
+                     Country:@address.Country
+                </div>
+               }
+    </div>
+    <div>
+        <a asp-controller="Product" asp-action="List">Back</a>
+    </div>
+</div>
+
+<style>
+
+    .container {
+        margin-top: 20px;
+        text-align: left;
+        color: cornflowerblue;
+    }
+    
+    h2 {
+        font-size: 24px;
+        margin: 10px 0;
+    }
+</style>

@@ -1,0 +1,121 @@
+@model Real_Estate.Core.Application.Dto.ProfileRequestMode
+<link rel="stylesheet" href="~/css/Register.css">
+<div class="Profile">
+    <div class="text-center">
+        <h2>Registration Form</h2>
+    </div>
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <form asp-action="Register">
+                <div class="profile">
+                    <label asp-for="FirstName">First Name</label>
+                    <input class="form-control" type="text" asp-for="FirstName" required>
+                    <span asp-validation-for="FirstName"></span>
+                </div>
+                <div class="profile">
+                    <label asp-for="LastName">Last Name</label>
+                    <input class="form-control" type="text" asp-for="LastName" required>
+                    <span asp-validation-for="LastName"></span>
+                </div>
+                <div class="profile">
+                    <label asp-for="Email">Email</label>
+                    <input class="form-control" type="Email" asp-for="Email" required>
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="profile">
+                    <label asp-for="Password">Password</label>
+                    <input class="form-control" type="password" asp-for="Password" required>
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="profile">
+                    <label asp-for="UserName">User Name</label>
+                    <input class="form-control" type="text" asp-for="UserName" required>
+                    <span asp-validation-for="UserName"></span>
+                </div>
+                <div class="profile">
+                    <label asp-for="PhoneNumber">Phone Number</label>
+                    <input class="form-control" type="tel" asp-for="PhoneNumber" required>
+                    <span asp-validation-for="PhoneNumber"></span>
+                </div>
+                <div class="profile">
+                    <label asp-for="CountryCode">Country Code</label>
+                    <input class="form-control" type="text" asp-for="CountryCode" required>
+                    <span asp-validation-for="CountryCode"></span>
+                </div>
+                <div class="profile">
+                    <label asp-for="Number">House Number</label>
+                    <input class="form-control" type="text" asp-for="Number" required>
+                    <span asp-validation-for="Number"></span>
+                </div>
+                <div class="profile">
+                    <label asp-for="Street">Street</label>
+                    <input class="form-control" type="text" asp-for="Street" required>
+                    <span asp-validation-for="Street"></span>
+                </div>
+                <div class="profile">
+                    <label asp-for="City">City</label>
+                    <input class="form-control" type="text" asp-for="City" required>
+                    <span asp-validation-for="City"></span>
+                </div>
+                <div class="profile">
+                    <label asp-for="State">State</label>
+                    <input class="form-control" type="text" asp-for="State" required>
+                    <span asp-validation-for="State"></span>
+                </div>
+                <div class="profile">
+                    <label asp-for="PostalCode">Postal Code</label>
+                    <input class="form-control" type="number" asp-for="PostalCode" required>
+                    <span asp-validation-for="PostalCode"></span>
+                </div>
+                <div class="profile">
+                    <label asp-for="Dob">Year of Birth</label>
+                    <input class="form-control" type="text" asp-for="Dob" required>
+                    <span asp-validation-for="Dob"></span>
+                </div>
+                <div class="text-end pt-2">
+                    <input class="btn btn-primary" type="submit" value="Submit" />
+                </div>
+            </form>
+            <li>
+                <a asp-controller="Home" text asp-action="">Back</a>
+            </li>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+<style>
+    .Profile {
+        margin-top: 20px;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-image: url("https://images5.alphacoders.com/370/thumbbig-370235.webp");
+        border-radius: 30px;
+        margin-left: 50px;
+        margin-right: 50px;
+        
+    }
+
+    .text-center h2 {
+        font-size: 24px;
+    }
+
+    .profile label {
+        font-weight: bold;
+        color: red;
+    }
+
+    .profile {
+        margin-top: 10px;
+    }
+
+    .text-end {
+        text-align: right;
+    }
+</style>

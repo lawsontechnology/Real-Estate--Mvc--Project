@@ -1,0 +1,50 @@
+@model Real_Estate.Core.Application.Dto.ProductUpdateModel
+
+<h2>Product Update Form</h2>
+
+<div>
+    <form asp-action="Update">
+        <div>
+            <div>
+                <label asp-for="ProductCode"></label>
+                <input type="text" asp-for="ProductCode">
+                <span asp-validation-for="ProductCode"></span>
+                <br><br>
+            </div>
+            
+            <div>
+                <label asp-for="Price"></label>
+                <input type="text" asp-for="Price">
+                <span asp-validation-for="Price"></span>
+                <br><br>
+            </div>
+
+            <div>
+                <label asp-for="Type"></label>
+                <input type="text" asp-for="Type">
+                <span asp-validation-for="Type"></span>
+                <br><br>
+            </div>
+            
+            <style>
+                div{
+                    color: cornflowerblue;
+                    text-decoration: solid;
+                }
+                
+            </style>
+        </div>
+        <div>
+                <input class="btn btn-primary" type="submit" value="Submit"/>
+        </div>
+         <li>
+        <a asp-controller="Product"  text asp-action="List">Back</a>
+    </li>
+    </form>
+</div>
+@section Scripts 
+{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

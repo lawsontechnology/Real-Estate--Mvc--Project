@@ -1,0 +1,77 @@
+@model IEnumerable<Real_Estate.Core.Application.Dto.ProfileDto>
+@{
+    ViewData["Title"] = "Customer List";
+}
+
+<div>
+    <table class="table table-active table-bordered table-responsive table-striped">
+        <thead>
+            <tr>
+                <th>S/N</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>YearOfBirth</th>
+                <th>PhoneNumber</th>
+                <th>CountryCode</th>
+                <th>HouseNumber</th>
+                <th>Street</th>
+                <th>State</th>
+                <th>City</th>
+                <th>PostalCode</th>
+                <th>Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                int i = 1;
+                foreach (var customer in Model)
+                {
+                    <tr>
+                        <td>@i</td>
+                        <td>@customer.FirstName</td>
+                        <td>@customer.LastName</td>
+                        <td>@customer.Dob</td>
+                        <div>
+                            <div class="phone-info">
+                                 Phone Number: @customer.Phone.PhoneNumber
+                                 Country Code: @customer.Phone.CountryCode
+                            </div>
+                         </div>
+                         <div>
+                            <div class="address-info">
+                                 House Number: @customer.Address.Number
+                                 Street: @customer.Address.Street
+                                 State: @customer.Address.State
+                                 City: @customer.Address.City
+                                 Postal Code: @customer.Address.PostalCode
+                             </div>
+                         </div>
+                        <td>
+                            <a asp-controller="Profile" asp-action="Get" asp-route-id="@customer.Id">Details</a>
+                        </td>
+                    </tr>
+                    i++;
+                }
+            }
+        </tbody>
+    </table>
+            
+</div>
+
+<style>
+    tr {
+        color: purple;
+    }
+
+    .phone-info, .address-info {
+        background-color: #f5f5f5;
+        padding: 10px;
+        border-radius: 5px;
+        margin: 5px;
+        
+    }
+
+    .phone-info h2, .address-info h2 {
+        color: cornflowerblue;
+    }
+</style>

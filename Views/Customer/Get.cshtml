@@ -1,0 +1,46 @@
+@model Real_Estate.Core.Application.Dto.ProfileDto
+@{
+    ViewData["ProfileName"] = @Model.FirstName + " " + Model.LastName;
+}
+<div class="profile-container">
+   @{
+           <h2>Full Name : @ViewData["ProfileName"]</h2>
+            <h2>Email : @Model.Email</h2>
+            <div class="phone-info">
+                <h2>Phone Number: @Model.Phone.PhoneNumber</h2>
+                <h2>Country Code: @Model.Phone.CountryCode</h2>
+            </div>
+            <h2>Date of Birth: @Model.Dob</h2>
+            <div class="address-info">
+                <h2>House Number: @Model.Address.Number</h2>
+                <h2>Street: @Model.Address.Street</h2>
+                <h2>City: @Model.Address.City</h2>
+                <h2>State: @Model.Address.State</h2>
+                <h2>Postal Code: @Model.Address.PostalCode</h2>
+            </div>
+    }
+</div>
+ <li>
+        <a asp-controller="User" text asp-action="Customer">Back</a>
+    </li>
+
+
+<style>
+    .profile-container {
+        background-color: #f5f5f5;
+        padding: 20px;
+        border-radius: 5px;
+        margin: 20px;
+    }
+
+    .phone-info, .address-info {
+        background-color: #e0e0e0;
+        padding: 10px;
+        margin: 10px;
+        border-radius: 5px;
+    }
+
+    h2 {
+        color: cornflowerblue;
+    }
+</style>

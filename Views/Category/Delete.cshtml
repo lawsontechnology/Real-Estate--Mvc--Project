@@ -1,0 +1,13 @@
+@model Real_Estate.Core.Application.Dto.CategoryDto
+<div>Are you sure you want to delete this Category?</div>
+<div>
+    <h4>@Model.CategoryName</h4>
+    @* <h4>@Model.Price</h4> *@
+</div>
+<form asp-action="Delete">
+    <input type="hidden" value="@Model.Id"/>
+    <input class="btn btn-danger" type="submit" value="Delete"/>
+    <li>
+        <a asp-controller="Category" asp-action="List"><button>No</button></a>
+        </li>
+</form>

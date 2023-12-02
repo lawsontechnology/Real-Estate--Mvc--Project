@@ -1,0 +1,70 @@
+@model IEnumerable<Real_Estate.Core.Application.Dto.CategoryDto>
+@{
+    ViewData["Title"] = "Category-List";
+}
+
+<div class="container">
+    <table class="table table-active table-bordered table-striped table-responsive">
+        <thead>
+            <tr>
+                <td>S/N</td>
+                <td>Categories Names</td>
+                <td>Description</td>
+                <td>Price-Range</td>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                int i = 1;
+                foreach (var categories in Model)
+                {
+                    <tr>
+                         <td>@i</td>
+                         <td>@categories.CategoryName</td>
+                         <td>@categories.Description</td>
+                         <td>@categories.PriceRange</td>
+                    </tr>
+                    i++;
+                }
+            }
+        </tbody>
+    </table>
+    <div>
+        <a asp-controller="User" asp-action="Manager">Back</a>
+    </div>
+</div>
+
+<style>
+
+    .container {
+        margin-top: 20px;
+          background-repeat: no-repeat;
+            background-size: cover;
+            background-image: url("https://wallpapers.com/images/high/real-estate-pictures-iygfhpbvu3nxv9si.webp");
+    }
+
+    .table {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .table-bordered {
+        border: 1px solid #ddd;
+    }
+
+    .table-striped tbody tr:nth-of-type(odd) {
+        background-color: #f9f9f9;
+    }
+
+    .table-responsive {
+        overflow-x: auto;
+    }
+
+    td {
+        color: purple;
+    }
+
+    a {
+        color: cornflowerblue;
+    }
+</style>

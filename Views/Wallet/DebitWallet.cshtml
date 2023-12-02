@@ -1,0 +1,79 @@
+<div>
+    <h2><i>Purchase</i></h2>
+</div>
+
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="row col-md-10 pt-3">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <span class="text-center">
+                <h3>@ViewData["Title"]</h3>
+            </span>
+            <div>
+                <div>Are you sure you want to Buy this Property</div>
+            </div>
+            <form asp-action="DebitWallet" method="post">
+                @* <input type="hidden" name="amount" value="@Request.Form["amount"]" /> *@
+                <input class="btn btn-danger" type="submit" value="Buy" />
+                <li>
+                    <a asp-controller="User" asp-action="Customer" class="btn btn-secondary">Exist</a>
+                </li>
+            </form>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>
+
+<style>
+    h2 {
+        font-style: italic;
+    }
+
+    .profile {
+        margin: 10px 0;
+    }
+
+    label {
+        font-weight: bold;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    .text-danger {
+        color: red;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        color: #fff;
+        cursor: pointer;
+        border: none;
+        border-radius: 4px;
+        padding: 10px 20px;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+    }
+
+    .btn-secondary {
+        background-color: #6c757d;
+    }
+
+    .btn-primary:hover,
+    .btn-secondary:hover {
+        opacity: 0.8;
+    }
+</style>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

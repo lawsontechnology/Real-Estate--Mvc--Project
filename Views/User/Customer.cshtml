@@ -1,0 +1,65 @@
+@using System.Security.Claims
+@{
+    ViewData["Title"] = "Customer Dashboard";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-md-2 border" style="min-height: 520px; padding: 0px; margin: 0px">
+            @await Html.PartialAsync("~/Views/User/Menu.cshtml")
+            <a class="dropdown-item active" asp-action="Customer" asp-controller="User">Dashboard</a>
+            <a class="dropdown-item" asp-action="CreditWallet" asp-controller="Wallet" 
+              asp-route-id='@(User.Identity.IsAuthenticated ? User.FindFirst(ClaimTypes.NameIdentifier)?.Value : "")'>Credit Wallet</a>
+            <a class="dropdown-item" asp-action="Get" asp-controller="Wallet" 
+              asp-route-id='@(User.Identity.IsAuthenticated ? User.FindFirst(ClaimTypes.NameIdentifier)?.Value : "")'>View Balance</a>
+            <a class="dropdown-item" asp-action="List" asp-controller="Category">Categories List</a>
+            <a class="dropdown-item" asp-action="List" asp-controller="Product">Product Available</a>
+            <a class="dropdown-item" asp-action="GetAll" asp-controller="Location">Location List</a>
+              <a class="dropdown-item" asp-action="DebitWallet" asp-controller="Wallet" 
+              asp-route-id='@(User.Identity.IsAuthenticated ? User.FindFirst(ClaimTypes.NameIdentifier)?.Value : "")'></a>
+        </div>
+        <div class="col-md-10 pt-3">
+            <div class="text-center">
+                <h3>@ViewData["Title"]</h3>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<style>
+   
+    .container {
+        margin-top: 20px;
+          background-repeat: no-repeat;
+            background-size: cover;
+            background-image: url("https://wallpapers.com/images/high/real-estate-mutual-funds-sq9sx7325iizxu7f.webp");
+    }
+
+    .border {
+        border: 1px solid #ccc;
+    }
+
+    .dropdown-item {
+        display: block;
+        padding: 10px;
+        text-decoration: none;
+        color: #333;
+    }
+
+    .dropdown-item.active {
+        background-color: #007bff;
+        color: #fff;
+    }
+
+    .col-md-10 {
+        min-height: 520px;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    h3 {
+        font-size: 24px;
+    }
+</style>

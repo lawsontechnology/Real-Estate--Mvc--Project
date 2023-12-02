@@ -1,0 +1,108 @@
+@model Real_Estate.Core.Application.Dto.ManagerRequestMode
+
+<div>
+    <h2><i>Create Manager Form</i></h2>
+</div>
+
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="row col-md-10 pt-3">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <span class="text-center"><h3>@ViewData["Title"]</h3></span>
+
+            <form asp-action="Add">
+               <div class="profile">
+                    <label asp-for="FirstName">First Name</label>
+                    <input class="form-control" type="text" asp-for="FirstName" required>
+                    <span asp-validation-for="FirstName"></span>
+                </div>
+                <div class="profile">
+                    <label asp-for="LastName">Last Name</label>
+                    <input class="form-control" type="text" asp-for="LastName" required>
+                    <span asp-validation-for="LastName"></span>
+                </div>
+                <div class="profile">
+                    <label asp-for="Email">Email</label>
+                    <input class="form-control" type="Email" asp-for="Email" required>
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="profile">
+                    <label asp-for="Password">Password</label>
+                    <input class="form-control" type="password" asp-for="Password" required>
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="profile">
+                    <label asp-for="PhoneNumber">Phone Number</label>
+                    <input class="form-control" type="tel" asp-for="PhoneNumber" required>
+                    <span asp-validation-for="PhoneNumber"></span>
+                </div>
+                <div class="profile">
+                    <label asp-for="CountryCode">Country Code</label>
+                    <input class="form-control" type="text" asp-for="CountryCode" required>
+                    <span asp-validation-for="CountryCode"></span>
+                </div>
+                <div class="profile">
+                    <label asp-for="Number">House Number</label>
+                    <input class="form-control" type="text" asp-for="Number" required>
+                    <span asp-validation-for="Number"></span>
+                </div>
+                <div class="profile">
+                    <label asp-for="Street">Street</label>
+                    <input class="form-control" type="text" asp-for="Street" required>
+                    <span asp-validation-for="Street"></span>
+                </div>
+                <div class="profile">
+                    <label asp-for="City">City</label>
+                    <input class="form-control" type="text" asp-for="City" required>
+                    <span asp-validation-for="City"></span>
+                </div>
+                <div class="profile">
+                    <label asp-for="State">State</label>
+                    <input class="form-control" type="text" asp-for="State" required>
+                    <span asp-validation-for="State"></span>
+                </div>
+                <div class="profile">
+                    <label asp-for="PostalCode">Postal Code</label>
+                    <input class="form-control" type="number" asp-for="PostalCode" required>
+                    <span asp-validation-for="PostalCode"></span>
+                </div>
+                <div class="profile">
+                    <label asp-for="StaffNumber">Staff Number</label>
+                    <input class="form-control" type="text" asp-for="StaffNumber" required>
+                    <span asp-validation-for="StaffNumber"></span>
+                </div>
+                <div>
+                    <input class="btn btn-primary" type="submit" value="Submit" />
+                </div>
+                <li>
+                    <a asp-controller="Manager" text asp-action="List">Back</a>
+                </li>
+            </form>
+
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>
+
+@section  Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+<style>
+    .profile {
+        margin-top: 10px;
+          background-repeat: no-repeat;
+            background-size: cover;
+            background-image: url("https://wallpapers.com/images/high/real-estate-mutual-funds-sq9sx7325iizxu7f.webp");
+    }
+
+    .text-center h2 {
+        font-size: 24px;
+    }
+    .profile label{
+        color: red;
+    }
+</style>

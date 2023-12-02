@@ -1,0 +1,130 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Real-Estate</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Real-Estate.styles.css" asp-append-version="true" />
+    <style>
+        ul.navbar-nav li {
+            color: red;
+        }
+    </style>
+
+</head>
+<body >
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid" style="position: relative;">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Real_Estate</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="List">Product</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Category" asp-action="List">Categories</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Location" asp-action="GetAll">Location</a>
+                        </li>
+                    </ul>
+                    
+                    
+                    <ul class="navbar-nav">
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item" style="align-self: center;">
+                                @if (true)
+                                {
+                                    <img style="width:40px;height:40px">
+                                }
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark">Hello @User.Identity?.Name</a>
+                            </li>
+                            <li class="nav-item">
+                                <form class="form-inline">
+                                    <button asp-controller="User" asp-action="Logout" class="nav-link btn btn-link text-dark">Logout</button>
+                                </form>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-controller="Profile" asp-action="Register">Register</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-controller="User" asp-action="Login">Login</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+      <div class="container">
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <div class="alert alert-success">
+                @TempData["SuccessMessage"]
+            </div>
+        }
+
+        @if (TempData["ErrorMessage"] != null)
+        {
+            <div class="alert alert-danger">
+                @TempData["ErrorMessage"]
+            </div>
+        }
+    </div>
+    <div class="containers">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy;  Real-Estate <a asp-area="" asp-controller="Product" asp-action="List">Property</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+    
+    @* @section scripts {
+    <script>
+        var userRole = "@User.Claims.FirstOrDefault(c => c.Type == "Role")?.Value";
+        if (userRole === "Admin") 
+        {
+             setTimeout(function () {
+                window.location.href ='@Url.Action("Dashboard", "Admin")'; 
+            }, 2000);  
+        } 
+        else if (userRole === "Manager") 
+        {
+            setTimeout(function () {
+                window.location.href ='@Url.Action("Dashboard", "Manager")';
+            }, 2000);
+        }
+        else if (userRole === "customer") 
+        {
+            setTimeout(function () {
+                window.location.href = '@Url.Action("Dashboard", "customer")';
+            }, 2000);
+        }
+         else {
+            document.getElementById("roleRedirectSection").style.display = "none";
+        }
+    </script>
+} *@
+</body>
+</html>
